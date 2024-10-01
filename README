@@ -1,0 +1,96 @@
+Bienvenue sur l'entrainement !
+
+Sur le terminal, placez vous dans le dossier Entrainement_GitHub afin de pouvoir travailler sur ce projet. Une fois à l'intérieur, vérifier qu'il y a bien la présence d'un fichier nommé ".git". Le faire apparaitre si vous ne le voyez pas puisque c'est un fichier caché ! Pour cela, cliquer sur les 3 barres puis sur "Afficher les fichiers cachés" depuis le navigateur des fichiers.
+
+
+
+
+
+Ex : Visualiser les dernières avancées de ses collaborateurs
+
+Pour observer les modifications qu'ont pu apporter les autres collaborateurs, vous pouvez effectuer la commande "git log" qui va afficher les derniers commits qui ont été fait.
+
+Le mieux reste de combiner cette commande avec ce qui se trouve sur GitHub. Allez sur GitHub et cliquez sur la partie du milieu, par exemple "README et fichier Java" afin de véritablement observer les lignes de codes qui ont été modifiées lors de ce commit nommé "README et fichier Java".
+
+
+
+
+
+Ex : Modifier vos fichiers
+
+Pour cette exercice, vous allez simplement ouvrir le fichier de code ma_premiere_fenetre.java et supprimer tout le contenu sauf les import. Enregistrer classiquement le nouveau fichier en écrasant le dernier. (Rien de nouveau jusqu'à présent). Une fois que vous avez fini de travailler, il est tant pour vous de sauvegarder vos avancées sur le serveur GitHub pour que les autres collaborateurs puissent y avoir accès.
+
+Pour cela, vous allez commencer par effectuer la commande "git add ." qui permet d'ajouter les nouvelles modifications dans le fichier .git sans pour autant les sauvegarder.
+
+Pour sauvegarder les nouvelles modifications localement, c'est à dire sur votre machine, il faut faire un commit avec la commande "git commit -m "message aussi précis que possible des modifications apportés, par exemple : Suppression des defs" ". 
+
+Pour observer les commits qui ont été fait récemment, faire la commande "git log". Vous verrez normalement même apparaitre ceux qui ont été fait par les autres collaborateurs (ici "README et fichier Java").
+
+Pour vérifier que le commit a été correctement fait, faire la commande "git status".
+
+Maintenant que vous avez enregistrer vos modifications sur votre machine, il est possible d'envoyer votre travail aux autres collaborateurs, c'est à dire sur le serveur GitHub. Pour cela, il suffit de push votre travail avec la commande "git push -u origin main". Main correspond au nom de la branche sur laquelle vous avez travaillée et donc sur laquelle le header se situe. Cela va apporter les modifications que vous avez fait en temps réel sur les fichiers des autres collaborateurs. Donc leur dossier Entrainement_GitHub va automatiquement être modifié !. 
+
+Lorsque vous allez faire cette commande, le terminal va vous demander de renseigner votre pseudo issu du serveur GitHub ainsi que votre mot de passe. Si le mot de passe ne fonctionne pas, pas de panique. Il va falloir que vous utiliser une clé d'accès. Pour cela, aller sur le serveur GitHub, puis cliquer sur votre logo en haut à droite.
+Puis aller dans Settings->Developer settings->Personal access tokens -> Tokens(classic)->Generate new token. Ensuite vous pouvez tout cocher et mettre une expiration non définie. Pensez à bien copier le code une fois créé, dans un fichier et assurez vous de ne pas le perdre. Sinon vous devrez en créer un autre et c'est une perte de temps.
+
+Le code que vous avez obtenu va vous servir de mot de passe lorsque vous utliserez la commande push. Réessayez et voyez si cela fonctionne. Si cela ne fonctionne pas, envoyez moi le message d'erreur ou alors prévenez moi en cours.
+
+WARNING : Si on travail tous sur la même branche il risque d'y avoir des problèmes de compréhension. Aussi, si l'un de nous laisse une erreur qui empêche de compiler par exemple, cela va obliger les autres à régler votre problème et donc à comprendre sur quoi vous êtiez en train de travailler pour régler le soucis. C'est une perte de temps considérable. C'est pourquoi nous allons travaillez sur plusieurs branches et je vous expliquerais cela plus en détails.
+
+
+
+
+
+Ex :  Créer une nouvelle branche (En tant normal on ne le fait qu'une fois que l'on s'est mit d'accord dessus car une branche = un objectif)
+
+Comme expliqué précédemment, on va éviter de tous travailler au même endroit ! C'est pourquoi on va créer une nouvelle branche qui a pour but d'apporter une modification spécifique. Par exemple, on aura une branche qui s'occupera d'implémenter la partie compte bancaire et une autre branche qui s'occupera d'implémenter la partie conversation sachant que dans le branche main on aura la classe utilisateur qui sera implémentée puisque sans celle-ci on peut difficilement faire les autres à cause des attributs. En réalité, pour cette première partie d'implémentation, on a pas vraiment besoin de passer par des branches pour un travail aussi "simple". En revanche, cela va nous permettre de nous y habituer parce que par la suite on utilisera des branches pour l'implémentation des interfaces !
+
+Déjà, vous pouvez observer les branches qui existe déjà avec la commande "git branch". Vous pouvez aussi constatez que celle qui a une étoile et qui est de couleur verte est la branche sur laquelle vous travaillez actuellement.
+
+Pour créer une nouvelle branche nommé develop, vous pouvez faire la commande "git checkout -b develop". Refaire la commande "git branch" pour s'assurer que la branche a bien été créée et que vous vous situez bien dessus.
+
+Pour changer de branche et aller sur la branche main par exemple, il faut faire la commande "git checkout main". Cela va placer le Header (pointeur) sur la branche main. Refaire le commande "git branch" pour s'en assurer.
+
+
+
+
+
+Ex : Intérêt des branches
+
+C'est bien, vous avez créée une nouvelle branche. Mais à quoi cela sert-il ? 
+
+Au début, la branche contient la même chose que la branche sur laquelle le Header été situé lorsque vous l'avez créée. Autrement dit, la branche develop contient exactement la même chose que la branche main si tout c'est bien déroulé. Maintenant, vous allez pouvoir travailler sur cette branche pour développer une nouvelle classe par exemple sans que cela ne modifie le main.
+
+Pour cela, placer le Header sur la branche develop puis modifiez le fichier ma_premiere_fenetre en supprimant le dernier import. Sauvegarder le fichier puis sauvegarder la modification dans le fichier .git avec "git add .". Vérifier que la modification a bien eu lieu sur la branche develop avec "git status". Sauvegarder la modification localement avec "git commit -m "Suppression import"". Puis vérifier que le commit a correctement été fait avec "git log". Puis vous pouvez envoyer votre modification sur le serveur GitHub avec "git push -u origin develop". On ne se situe plus sur le main mais bien sur la branche develop, il faut donc mettre develop afin que ce soit les modifications de cette branche ci qui soit envoyées sur le serveur GitHub.
+
+Pour mieux visualiser ce qui vient de se passer, aller sur le serveur GitHub dans le projet en question et observez que, sur la branche main, la dernière modification est "Suppression des defs". Cliquer dessus pour vous en rendre compte. Revenez ensuite à l'accueil du projet et placer vous sur la branche develop (bouton en dessous du titre du projet). Vous observerez que la dernière modification est "Suppression import". C'est à dire que la branche main et la branche develop ne contiennent plus la même chose. Cela permet d'avoir un cran de sécurité lorsque l'on travaillera en même temps sur les fichiers de code.
+
+Maintenant que vous avez durement travaillée et terminée votre objectif sur la branche develop et qu'il n'y a aucune erreur qui traîne, vous allez pouvoir envoyer votre travail finalisé sur la branche main qui sera le rendu final de notre travail. 
+Pour basculer tout le travail présent sur une branche nommé develop vers une branche nommé main, il y a 2 posibilités. 
+Nous allons utiliser la plus brutale pour le moment car on n'est que 3 à travailler sur ce projet donc ce n'est pas dérangeant. Elle consiste à merger la branche choisie vers la branche sur laquelle on se situe. Commencer par vous placer sur la branche main puis faire la commande "git merge develop". Vous avez normalement sauvegardé localement dans le main tout ce qui se situe dans develop. Cela revient à avoir fait la commande "git commit" mais à plus grande échelle ! Pour vérifier que la modification a bien eu lieu, utiliser la commande "git log". Vous pourrez constater la différence avec l'ancien git log que vous avez effectué. Il ne vous reste plus qu'à envoyer la modification du main sur le serveur GitHub avec la commande "git push -u origin main".
+
+Vous pourrez alors observer sur le serveur GitHub que la dernière modification apportée au main est bien "Suppression import" et qu'on a bien mergé la branche develop vers la branche main.
+
+Il faut donc voir la branche develop comme un brouillon sur lequel vous allez essayer des choses jusqu'à obtenir la version finalisée de votre travail, sans que cela n'impact le travail des autres si jamais il y a des erreurs puisque les autres travailleront eux aussi sur d'autres branches. Ce qu'il faut absolument éviter c'est d'avoir des erreurs dans le main, sinon cela freine l'ensemble des collaborateurs.
+
+
+
+
+
+RECAP :
+
+Une fois que vous avez parfaitement compris tout cela, vous avez compris le plus gros de ce qu'il y a à savoir. Petit récap de l'ordre d'utilisation des commandes :
+
+1. Observer sur le serveur GitHub les dernières avancées de vos collaborateurs en complément de la commande "git log"
+
+2. Une fois que vous avez fini de travailler sur une partie, pour enregistrer ce que vous avez fait faire : "git add ." puis "git commit -m ..." puis "git push -u origin ...".
+
+3. Vous pouvez controller ce que vous faite avec les commandes "git status" ; "git log" et "git branch".
+
+4. En général vous pouvez naviguer à travers les branches pour travailler sur plusieurs objectifs suivant comment on va se répartir les tâches. Vous pouvez aussi merger votre travail sur le main quand vous avez terminé votre objectif depuis la branche secondaire. Le mieux est de se concerter pour la création de branches. Après pour merger on se fait confiance et de toute manière on pourra toujours modifier le travail depuis le main si besoin, comme vous avez pu le faire durant le premier exercice.
+
+
+Vous voyez qu'au final, il n'y a que 3 commandes qui seront toujours utilisées (2.) et quelques autres qui seront quelques fois utilisées (3. et 4.).
+
+
+
